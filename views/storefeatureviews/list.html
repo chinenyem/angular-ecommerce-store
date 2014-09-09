@@ -1,0 +1,25 @@
+
+	<button ng-click="goToAdd()">Add Lux Product</button>
+<div ng-repeat= "product in luxuryproducts | filter : search : strict">
+	<h3>{{product.bag}}</h3>
+	<h3>{{product.designer}}</h3>
+	<h3>{{product.price | currency}}</h3>
+	<img ng-src="{{product.image}}">
+	<p>{{product.description}}</p>
+	<a href ="{{product.link}}"></a>
+	<a href ="#/luxproductview/{{index}}">Show More</a>
+		<button ng-click ="removeProduct($index)">Remove from List</button>
+		<a href ="#/luxproductview/{{$index}}/edit"> Edit the List</a>
+</div>
+
+<form>
+	<select name ="Filter" id="Filter" ng-model="search.designer">
+		<option value =""></option>
+		<option value="SAINT LAURENT">SAINT LAURENT</option>
+		<option value="ALEXANDER WANG">ALEXANDER WANG</option>
+		<option value="BOTTEGA VENETA">BOTTEGA VENETA</option>
+		<option value="PROENZA SCHOULER">PROENZA SCHOULER</option>
+		<option value="CHLOE">CHLOE</option>
+	</select>
+	<input id="search" type ="text" placeholder="Search by Designer" ng-model="search.bag">
+</form>

@@ -1,0 +1,11 @@
+<h3> Edit Products </h3>
+
+<form action="" ng-submit=" editProducts(singleProduct)">
+	<input type="text" placeholder="Name of Bag" ng-model="singleProduct.bag"/>
+	<input type="text" placeholder="Name of Designer" ng-model="singleProduct.designer"/>
+	<input type="number" placeholder="Price of Bag" ng-model="singleProduct.price"/>
+	<input type="url" placeholder="Image of Bag" ng-model="singleProduct.image"/>
+	<textarea placeholder="Description of Bag" ng-model="singleProduct.description" cols="30" rows="15"></textarea> 
+	<input type="url" placeholder="Link to Bag" ng-model="singleProduct.link"/>
+	<button type="submit">Finish Editing</button>
+</form>
