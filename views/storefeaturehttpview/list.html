@@ -1,0 +1,11 @@
+
+<div  ng-repeat="cheapproduct in cheapproducts">
+    <h3>{{cheapproduct.bag}}</h3>
+	<h3>{{cheapproduct.designer}}</h3>
+	<h3>{{cheapproduct.price | currency}}</h3>
+	<img ng-src="{{cheapproduct.image}}">
+	<p>{{cheapproduct.description}}</p>
+	<a href ="{{cheapproduct.link}}"></a>
+    <button>Edit Product</button></a>
+    <button ng-click="deleteProduct(cheapproduct)">Delete Product</button>
+</div>

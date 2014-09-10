@@ -1,0 +1,12 @@
+
+
+<div ng-repeat="item in items">
+
+<h3>{{item.bag}}</h3>
+	<h3>{{item.designer}}</h3>
+	<h3>{{item.price | currency}}</h3>
+	<img ng-src="{{item.image}}">
+	<p>{{item.description}}</p>
+	<a href ="{{item.link}}"></a>
+	<button ng-click="deletecheapItem(item)">Remove From Cart</button>
+</div>

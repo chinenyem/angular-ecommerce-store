@@ -1,0 +1,18 @@
+<div>
+	<button ng-click="addcheapItem(cheapproduct)">Add To Luxbag</button>
+	<button ng-click="review = !review">Review Bag</button>
+	<h3>{{singleProduct.bag}}</h3>
+	<h3>{{singleProduct.designer}}</h3>
+	<h2> ${{singleProduct.price}}</h2>
+	<img ng-src="{{singleProduct.image}}"/>
+	<p>{{singleProduct.description}}</p>
+	<a href="{{singleProduct.link}}"></a>
+	
+</div>
+
+
+<form ng-show="review">
+  <input type="text" ng-model="singleProduct.personname" placeholder="Name">
+  <textarea name="" id="" cols="30" rows="15" placeholder=" How do you Feel about the product" ng-model="singleProduct.reviewdescription"></textarea>
+  <button ng-click="rate = !rate">Finish Bag Review</button>
+</form>

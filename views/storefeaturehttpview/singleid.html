@@ -1,0 +1,12 @@
+<div>
+	<h3>{{singleProduct.bag}}</h3>
+	<h3>{{singleProduct.designer}}</h3>
+	<h2> ${{singleProduct.price}}</h2>
+	<img ng-src="{{singleProduct.image}}"/>
+	<p>{{singleProduct.description}}</p>
+	<a href="{{singleProduct.link}}"></a>
+	 <button class="deleteButton" ng-click="removeProduct($index)">Delete Product</button>
+</div>
+
+
+

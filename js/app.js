@@ -16,5 +16,3 @@
             redirectTo: "/"
         });
 });
-
-// angular.module("storeSvc", []);
