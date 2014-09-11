@@ -1,0 +1,17 @@
+<div>
+  <a href="#/"><button>Home Page</button></a>
+  <a href="#/shop/cart"><button>View LuxBag</button></a>
+</div>
+
+<div ng-repeat="cheapproduct in cheapproducts">
+   <h3>{{cheapproduct.bag}}</h3>
+	<h3>{{cheapproduct.designer}}</h3>
+	<h3>{{cheapproduct.price | currency}}</h3>
+	<img ng-src="{{cheapproduct.image}}">
+	<p>{{cheapproduct.description}}</p>
+	<a href ="{{cheapproduct.link}}"></a>
+  <a href="#/storefreatureadminhttp/{{cheapproduct._id}}"><button>View More</button></a>
+  <button ng-click="addBag(cheapproduct)">Add To Luxbag</button>
+</div>
+
+

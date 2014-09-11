@@ -1,12 +1,24 @@
 
 
-<div ng-repeat="item in items">
 
-<h3>{{item.bag}}</h3>
-	<h3>{{item.designer}}</h3>
-	<h3>{{item.price | currency}}</h3>
-	<img ng-src="{{item.image}}">
-	<p>{{item.description}}</p>
-	<a href ="{{item.link}}"></a>
-	<button ng-click="deletecheapItem(item)">Remove From Cart</button>
+
+<a href="#/storefreatureadminhttp"><button>Chosen Luxury Bags</button></a>
+
+<div ng-repeat="bag in bags = (bags | filter:query)">
+  <p> name="{{bag.name}}"</p>
+  <p> price="{{bag.price}}" </p>
+  <p> description="{{bag.description}}"</p>
+  <p> image="{{bag.image}}" </p>
+  <p> link="{{bag.link}}"</p>
+  <button ng-click="deleteBag(bag._id)">Don't like it move it</button>
+  <a href="#/storefreatureadminhttp/{{bag._id}}"><button>View More</button></a>
+  <p>SubTotal: {{bags.length}}</p>
 </div>
+
+
+
+
+guest in guests = (guests | filter: query)
+
+
+{{guests.length}}

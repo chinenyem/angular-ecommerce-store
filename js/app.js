@@ -1,6 +1,8 @@
  angular.module("fatherController",
     [
     "storeFeature",
+   "storeFeaturehttp",
+    "storeFreatureadminhttp",
      "ngRoute"
      ])
 

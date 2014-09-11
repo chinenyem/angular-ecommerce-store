@@ -1,78 +1,49 @@
 angular.module("storeFreatureadminhttp")
-.factory("storeFreatureadminhttpSvc",  function ($rootScope, $log, $http){
+  .factory("storeFreatureadminhttpSvc", function ($log, $rootScope, $http){
 
-	var urlClient = "http://tiy-fee-rest.herokuapp.com/collections/chinenyemanotheroneandtired";
+var urlBag = "http://chshackathon.herokuapp.com/collections/chinenyembagproduct";
 
-	var getcheapItems = function () {
-        return $http.get(urlClient);
-      };
 
-      var getcheapItem = function (id) {
-        return $http.get(urlClient + "/" + id);
-      };
+  var getBags = function (){
+    return $http.get(urlBag);
+  };
 
-      var addcheapItem = function (item) {
-        return $http.post(urlClient, item).then(function (response) {
-          $rootScope.$broadcast("item:added");
-          $log.info("item:added");
-          });
-      };
+  var getBag = function (id) {
+    return $http.get(urlBag + "/" + id);
+  };
 
-      var updateCheapItem = function (item) {
-        return $http.put(urlClient + "/" + item._id, item).then(function (responose) {
-          $rootScope.$broadcast("item:updated");
-          $log.info("item:updated");
-        });
-      };
-
-      var deletecheapItem = function (item) {
-        return $http.delete(urlClient + "/" + item._id, item).then(function (response) {
-          $rootScope.$broadcast("item:deleted");
-          $log.info("item:deleted");
-        });
-      };
-
-      return {
-        getcheapItems: getcheapItems,
-        getcheapItem: getcheapItem,
-        addcheapItem: addcheapItem,
-        updateCheapItem: updateCheapItem,
-        deletecheapItem: deletecheapItem
-      };
-
+  var addBag = function (bag) {
+    $http.post(urlBag, bag).then(function (response){
+    $rootScope.$broadcast("bag:added");
+    $log.info("bag:added");
     });
+  };
+
+  var updateBag = function (bag){
+    $http.put(urlBag + "/" + bag._id, bag).then(function (response){
+      $rootScope.$broadcast("bag:updated");
+      $log.info("bag:updated");
+    });
+  };
+
+  var deleteBag = function (id){
+    $http.delete(urlBag + "/" + id).then(function (response){
+      $rootScope.$broadcast("bag:deleted");
+      $log.info("bag:deleted");
+    });
+  };
 
 
 
 
+  return {
+    getBags: getBags,
+    getBag: getBag,
+    addBag: addBag,
+    updateBag: updateBag,
+    deleteBag: deleteBag
+  };
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  });

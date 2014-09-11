@@ -1,0 +1,31 @@
+Bag...
+
+<a href="#/storefreatureadminhttp"><button>Back To All bags</button></a>
+<a href="#/storefreatureadminhttp/luxbag"><button>See items in Your Luxbag</button></a>
+
+<div>
+  <div>
+    <h3>{{singleProduct.bag}}</h3>
+	<h3>{{singleProduct.designer}}</h3>
+	<h2> ${{singleProduct.price}}</h2>
+	<img ng-src="{{singleProduct.image}}" height="150" alt="bag"/>
+	<p>{{singleProduct.description}}</p>
+	<a href="{{singleProduct.link}}"></a>
+    <a href=""><button ng-click="poop = !poop">Review Item</button></a>
+    <button class="deleteButton" ng-click="addBag(singleProduct)">Add To Luxbag</button>
+  </div>
+</div>
+
+
+<form ng-show="poop" ng-submit="addbagReview(bagreview)">
+  <h3><input type="text" ng-model="bagreview.Customer" placeholder="Customer Name"></h3>
+  <p><textarea name="" id="" cols="30" rows="15" placeholder="What's your honest opinion" ng-model="bagreview.description"></textarea></p>
+  <button ng-click="poop = !poop">Submit Review</button>
+</form>
+
+<div ng-repeat="bagreview in singleProduct.bagreviews">
+ <h3>Fashionista: {{bagreview.bagreviewCustomer}}</h3>
+  <p>Thought: {{bagreview.bagreviewDescription}}</p>
+  <h3>Date: {{bagreview.bagreviewDate | date : format : timezone}}</h3>
+</div>
+

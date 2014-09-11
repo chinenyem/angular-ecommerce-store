@@ -4,17 +4,18 @@ angular.module("storeFreatureadminhttp",["ngRoute"])
 
    $routeProvider
         .when("/storefreatureadminhttp/luxbag", {
-            templateUrl: "views/storefreatureadminhttpview/luxbag.html",
+            templateUrl: "views/storefreatureadminhttpview/show.html",
             controller: "storeFreatureadminhttpCtrl"
         })
         .when("/storefreatureadminhttp", {
            templateUrl: "views/storefreatureadminhttpview/list.html",
            controller: "storeFreatureadminhttpCtrl"
          })
-        .when("/storefreatureadminhttp/:id", {
-           templateUrl: "views/storefreatureadminhttpview/singleid.html",
+        .when("/storefreatureadminhttp/:prodId", {
+           templateUrl: "views/storefreatureadminhttpview/luxbag.html",
            controller: "storefreatureadminhttpCtrl"
          })
+        
         .otherwise({
            redirectTo: "/"
          });

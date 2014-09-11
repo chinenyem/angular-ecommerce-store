@@ -9,7 +9,7 @@ angular.module ("storeFeature", ["ngRoute"])
 				templateUrl: "views/storeFeatureviews/create.html",
 				controller: "storeCtrl"
 			})
-			.when("/luxproductview/ :id", {
+			.when("/luxproductview/:id", {
 				templateUrl: "views/storeFeatureviews/singleid.html",
 				controller: "storeCtrl"
 			})

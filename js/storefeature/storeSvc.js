@@ -56,7 +56,6 @@ angular.module("storeFeature")
 				return luxuryproducts;
 			};
 
-
 			var addProducts= function(newProduct){
 				luxuryproducts.push(newProduct);
 			};

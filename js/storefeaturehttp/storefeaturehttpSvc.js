@@ -1,50 +1,59 @@
 angular.module("storeFeature")
-	.factory("storeFeaturehttpSvc",  function ($rootScope, $log, $http){
+	.factory("storeFeaturehttpSvc",  function ($log, $rootScope,  $http){
 		
-		var urlBase = "http://tiy-fee-rest.herokuapp.com/collections/chinenyemcheapproduct";
+		var baseUrl = "http://tiy-fee-rest.herokuapp.com/collections/chinenyemcheapproduct";
 
 		var getcheapProducts = function (){
-			return $http.get(urlBase);
+			return $http.get(baseUrl);
 		};
+
+
+
 
 		var getcheapProduct = function (id){
-			return $http.get(urlBase + "/" + id);
+			return $http.get(baseUrl + "/" + id);
 		};
 
-		var goToAdd = function (cheapproduct){
-			return $http.get(urlBase, cheapproduct).then(function(response){
+		var addCheap = function (cheapproduct){
+			$http.post(baseUrl, cheapproduct).then(function(response){
 			$rootScope.$broadcast("cheapproduct:added");
 			$log.info("cheapproduct:added");	
 			});
 		};
 
-		var updateProduct = function (cheapproduct){
-			return $http.put(urlBase + "/" + cheapproduct._id, cheapproduct).then(function (responose) {
-            $rootScope.$broadcast("cheapproduct:updated");
-            $log.info("cheapproduct:updated");
-          });
-		};
-		var deleteProduct = function (cheapproduct) {
-          return $http.delete(urlBase + "/" + cheapproduct._id, cheapproduct).then(function (response) {
+
+		var deleteProduct = function (id) {
+           $http.delete(baseUrl + "/" + id).then(function (response) {
             $rootScope.$broadcast("cheapproduct:deleted");
             $log.info("cheapproduct:deleted");
           });
         };
 
+		var updateProduct = function (cheapproduct){
+			$http.put(baseUrl + "/" + cheapproduct._id, cheapproduct).then(function (responose) {
+            $rootScope.$broadcast("cheapproduct:updated");
+            $log.info("cheapproduct:updated");
+          });
+		};
+
+		var editInventoryBag = function(cheapproduct){
+			$http.put(baseUrl + "/" + cheapproduct._id, cheapproduct).success(function(data){
+			$rootScope.$broadcast("bagreview:edited");
+			$log.info("bagreview:edited");
+			});
+
+		};
+		
+
         return {
             getcheapProducts: getcheapProducts,
             getcheapProduct: getcheapProduct,
-            addProduct: addProduct,
+            addCheap: addCheap,
+            deleteProduct: deleteProduct,
             updateProduct: updateProduct,
-            deleteProduct: deleteProduct
+            editInventoryBag: editInventoryBag
 
         };
-
-
-
-
-
-
 
 
 });

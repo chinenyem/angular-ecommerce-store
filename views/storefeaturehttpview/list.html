@@ -1,11 +1,16 @@
+<a href="#/storefeaturehttp/add"><button>Create Bag Product</button></a>
 
 <div  ng-repeat="cheapproduct in cheapproducts">
     <h3>{{cheapproduct.bag}}</h3>
 	<h3>{{cheapproduct.designer}}</h3>
 	<h3>{{cheapproduct.price | currency}}</h3>
-	<img ng-src="{{cheapproduct.image}}">
+	<img ng-src="{{cheapproduct.image}}" width="150" height="150" alt="bag">
 	<p>{{cheapproduct.description}}</p>
 	<a href ="{{cheapproduct.link}}"></a>
-    <button>Edit Product</button></a>
-    <button ng-click="deleteProduct(cheapproduct)">Delete Product</button>
+    <a href="#/storefeaturehttp/{{cheapproduct._id}}/edit">Edit</a>
+    <button ng-click="deleteProduct(cheapproduct._id)">Delete Product</button>
 </div>
+
+
+
+ 
